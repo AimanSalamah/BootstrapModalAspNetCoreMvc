@@ -7,8 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
-    <a asp-action="Create" data-target="#modal-container" data-toggle="modal">Create</a>
+    <a asp-action="Create" asp-controller="Products" data-toggle="modal" data-target="#ModalContainer">Create</a>
 </p>
 <table class="table">
     <thead>
@@ -39,12 +38,11 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID" data-target="#modal-container" data-toggle="modal">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID" data-target="#modal-container" data-toggle="modal">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID" data-target="#modal-container" data-toggle="modal">Delete</a>
+                    <a asp-action="Edit" asp-controller="Products" asp-route-id="@item.ID" data-toggle="modal" data-target="#ModalContainer">Edit</a> |
+                    <a asp-action="Details" asp-controller="Products" asp-route-id="@item.ID" data-toggle="modal" data-target="#ModalContainer">Details</a> |
+                    <a asp-action="Delete" asp-controller="Products" asp-route-id="@item.ID" data-toggle="modal" data-target="#ModalContainer">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<partial name="ModalView" />

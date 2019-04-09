@@ -70,7 +70,7 @@ namespace BootstrapModalAspNetCoreMvc
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=products}/{action=Index}/{id?}");
             });
         }
     }
