@@ -1,0 +1,12 @@
+﻿<div id="modal-container" class="modal fade hidden-print" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" id="TheContent">
+            <img src="~/images/giphy.gif" class="center-block" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#modal-container').on('hidden.bs.modal', function (e) {
+        $('#TheContent').html(' <img src="/images/giphy.gif" class="center-block"/> ');
+    });
+</script>
