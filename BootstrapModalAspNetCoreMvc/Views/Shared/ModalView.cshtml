@@ -1,30 +1,56 @@
-﻿<!-- The Modal -->
-<div class="modal" id="ModalContainer">
-    <div class="modal-dialog">
-        <div class="modal-content" id="TheContent">
+﻿@*<!-- The Modal -->
+    <div class="modal" id="ModalContainer">
+        <div class="modal-dialog">
+            <div class="modal-content" id="TheContent">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img src="~/images/giphy.gif" class="center-block" />
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <img src="~/images/giphy.gif" class="center-block" />
+        </div>
+    </div>*@
+    <div class="modal fade" id="ModalContainer" tabindex="-1" role="dialog" aria-labelledby="trailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trailModalLabel">Trail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="TheContent">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-
         </div>
     </div>
-</div>
 
-<script type="text/javascript">
-    $('#modal-container').on('hidden.bs.modal', function (e) {
-        $('#TheContent').html(' <img src="/images/giphy.gif" class="center-block"/> ');
-    });
-</script>
+    <script type="text/javascript">
+        $('#ModalContainer').on('hidden.bs.modal', function (e) {
+            $('#TheContent').html(' <img src="/images/giphy.gif" class="center-block"/> ');
+        });
+
+        $('#ModalContainer').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var url = button.attr("href");
+            var modal = $(this);
+            // note that this will replace the content of modal-content ever time the modal is opened
+            modal.find('.modal-content').load(url);
+        });
+    </script>
