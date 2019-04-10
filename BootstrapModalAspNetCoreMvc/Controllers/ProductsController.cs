@@ -48,13 +48,13 @@ namespace BootstrapModalAspNetCoreMvc.Controllers
                 return NotFound();
             }
 
-            return View(products);
+            return PartialView(products);
         }
 
         // GET: Products/Create
         public IActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Products/Create
@@ -69,7 +69,7 @@ namespace BootstrapModalAspNetCoreMvc.Controllers
                 ProductsList.Add(products);
                 return RedirectToAction(nameof(Index));
             }
-            return View(products);
+            return PartialView(products);
         }
 
         // GET: Products/Edit/5
@@ -81,7 +81,7 @@ namespace BootstrapModalAspNetCoreMvc.Controllers
             {
                 return NotFound();
             }
-            return View(products);
+            return PartialView(products);
         }
 
         // POST: Products/Edit/5
